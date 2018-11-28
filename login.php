@@ -74,8 +74,8 @@ if (isset($_POST['login'])) {
   }
 
   if (count($errors) == 0) {
-    $password = md5($password);
-    $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    $pass = md5($password);
+    $query = "SELECT * FROM users WHERE username='$username' AND password='$pass'";
     $results = mysqli_query($d, $query);
     $row=mysqli_fetch_assoc($results);
     if (mysqli_num_rows($results) == 1) {

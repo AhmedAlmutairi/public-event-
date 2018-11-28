@@ -1,3 +1,8 @@
+
+<head>
+	<script type="text/javascript" src="googleGetOneLocation.js"></script>
+</head>
+
 <?php 
 			
 			$s = $_POST['s'];
@@ -14,11 +19,25 @@
 				$sql = 'SELECT * FROM events WHERE city = "'.$s.'" ';
 				$data = $d->query($sql);
 			}
+				include('events.php');
+				$e = new events;
+				$one = $e->getSearchEvent($s, $by);
+				$one = json_encode($one, true);
 			
+
+				echo '<div id="searchlocation" style="display: none;">' . $one . '</div>';
 
 			?>
 
-		<table class="mytable">
+		<div >
+			
+			<div id="mapsearch" style="position: absolute; left: 4%; width: 90%; height: 400px; border: 2px solid;">
+			
+				
+			</div>
+		</div>
+		<div id="tbpos" style="padding-top: 420px;">
+		<table class="mytable" >
 	
            <tr>
              <th>Title</th>
@@ -46,3 +65,10 @@
 		?>
 
 	</table>
+</div>
+
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApmgbzLQcbmUzRKWNgO_aVD0K_mXAyfUI&callback=gMap3"
+        async defer></script>
+
+

@@ -63,12 +63,32 @@
 	<h1></h1>
 	<div style="float: left; width: 100%">
 		<?php 
+
 			$idd = (int)$_GET['id'];
-
-			echo '<a href="edit.php?id='.$idd.'" role="button" class="btn bttt"> Edit Event </a>';
-
+			$sql = 'SELECT * FROM events WHERE id = "'.$idd.'"';
+			$data = $d->query($sql);
+			$row = $data->fetch_assoc();
+			$ownerId = $row['user_id'];
+			$loginId = $_SESSION['id'];
+			//echo $ownerId;
+			//echo $loginId;
+			echo '<a href="edit.php?id='.$idd.'" role="button" class="btn bttt" id="edit"> Edit Event </a>';
+			echo '<a href="delete.php?id='.$idd.'" role="button" class="btn bttt" id="delete" OnClick="return confirm("blah blah");"> Delete </a>';
 
 		 ?>
+		 <?php if ($ownerId != $loginId) : ?>
+		 	<script type="text/javascript">
+		 		$('#edit').css({"opacity": "0.65", "cursor": "not-allowed", "pointer-events": "none"});
+		 		$('#delete').css({"opacity": "0.65", "cursor": "not-allowed", "pointer-events": "none"});
+        		$('#edit').prop('disabled', true);
+
+        		function conf(){
+        			alert("alert");
+        		}
+
+		 	</script>
+
+		 <?php endif ?>	
 		 <a href="index.php" role="button" class="btn"> << Back</a>
 		 <button class="btn" style="position: absolute; left: 60%; width: 500px;" id="showMap">Show Map</button>
 	</div>
@@ -148,7 +168,7 @@
 
 
 	<script type="text/javascript">
-		//$('#mapp').hide();
+		$('#mapp').hide();
 		$('#showMap').click(function(){
 			$('#mapp').toggle();
 		});

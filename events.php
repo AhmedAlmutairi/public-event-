@@ -107,6 +107,36 @@ class events
 		return $events;
 	}
 
+	public function getSearchEvent($s, $by){
+		include('db.php');
+		if($by === 'zipCode'){
+			$sql = 'SELECT * FROM events WHERE zipCode = "'.$s.'" ';
+			$statement = $d->query($sql);
+			$events = $statement->fetch_all();
+			return $events;
+		}elseif ($by === 'title') {
+			$sql = 'SELECT * FROM events WHERE title = "'.$s.'" ';
+			$statement = $d->query($sql);
+			$events = $statement->fetch_all();
+			return $events;
+		}elseif ($by === 'city') {
+			$sql = 'SELECT * FROM events WHERE city = "'.$s.'" ';
+			$statement = $d->query($sql);
+			$events = $statement->fetch_all();
+			return $events;
+		}
+		
+	}
+
+	public function getFilterEvent($categories){
+		include('db.php');
+		$sql = 'SELECT * FROM events WHERE category = "'.$categories.'" ';
+		$statement = $d->query($sql);
+		//$statement->execute();
+		$events = $statement->fetch_all();
+		return $events;
+	}
+
 
 
 }

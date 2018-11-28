@@ -38,7 +38,7 @@ if ($password != $password1) {
 if ($err) {
   echo '<script type="text/javascript">alert("Fields (username, name, email, password) cannot be empty");</script>';
 }else if($passErr){
-  echo '<script type="text/javascript">alert("passwords not the same");</script>';
+  echo '<script type="text/javascript">alert("passwords not matching");</script>';
 } else {
       $pass = md5($password);
     	$query = "INSERT INTO users (username, name, organization, email, password) 

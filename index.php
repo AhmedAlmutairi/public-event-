@@ -157,6 +157,8 @@
 					//alert(data);
         			$('#result').css("display", "block");
         			$('#tb').css("display", "none");
+        			$('#showMap').css({"opacity": "0.65", "cursor": "not-allowed"});
+        			$('#showMap').prop('disabled', true);
         			$('#result').html(data); 
     			}	  
 			});}
@@ -175,6 +177,8 @@
         			//alert(data);
         			$('#tb').css("display", "none");
         			$('#result').css("display", "block");
+        			$('#showMap').css({"opacity": "0.65", "cursor": "not-allowed"});
+        			$('#showMap').prop('disabled', true);
         			$('#result').html(data); 
     			}	  
 

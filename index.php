@@ -4,6 +4,7 @@
 	<title>Home</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script type="text/javascript" src="googleMap.js"></script>
 	<header class="heade">
 		<nav>
 			<div class="mydiv">
@@ -77,11 +78,33 @@
   
       	<input type="text" name="search" id="search">
 		<button class="btn" onClick="search()">Search</button>
+		<button class="btn" id="showMap">Show Map</button>
+	</div>
+
+	<div>
+			<?php 
+
+				include('events.php');
+				$e = new events;
+				$v = $e->getEvents();
+				$v = json_encode($v, true);
+				echo '<div id="location" style="display: none;">' . $v . '</div>';
+
+
+				$ev = $e->getEventsMarked();
+				$ev = json_encode($ev, true);
+				echo '<div id="evlocation" style="display: none;">' . $ev . '</div>';
+
+			 ?>	
+			<div id="map">
+
+			</div>
+
 	</div>
 
 		
            <div id="result">
-           	
+
            </div>
 
 	<div id="tb">
@@ -158,9 +181,31 @@
 			});
 		}
 
+		$('#map').hide();
+
+		$('#showMap').click(function(){
+			//$('#map').toggle();
+			//$('#tb').css("padding-top", "430px");
+			if($('#map').css('display') == "none"){
+				$('#map').show();
+				$('#tb').css("padding-top", "430px");
+			}else{
+				$('#map').hide();
+				$('#tb').css("padding-top", "0px");
+			}
+		});
+
 
 
 	</script>
 	
 </body>
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApmgbzLQcbmUzRKWNgO_aVD0K_mXAyfUI&callback=gMap"
+        async defer></script>
+
+
+
+
 </html>

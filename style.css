@@ -29,7 +29,6 @@ header {
 }
 
 table.tbl{
-	table-layout: fixed;
 	width: 60%;
 }
 
@@ -235,3 +234,12 @@ label{
 #radbox{
 	color: red;
 }
+
+#map{
+	position: absolute;
+	left: 4%;
+	width: 90%;
+	height: 400px;
+	border: 2px solid;
+}
+

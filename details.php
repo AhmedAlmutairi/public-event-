@@ -4,6 +4,8 @@
 <head>
 	<title>Event Details</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="googleGetOneLocation.js"></script>
 	<header class="heade">
 		<nav>
 			<div class="mydiv">
@@ -59,16 +61,19 @@
 </head>
 <body>
 	<h1></h1>
-	<?php 
-		$idd = (int)$_GET['id'];
+	<div style="float: left; width: 100%">
+		<?php 
+			$idd = (int)$_GET['id'];
 
-		echo '<a href="edit.php?id='.$idd.'" role="button" class="btn bttt"> Edit Event </a>';
+			echo '<a href="edit.php?id='.$idd.'" role="button" class="btn bttt"> Edit Event </a>';
 
 
-	 ?>
-	 <a href="index.php" role="button" class="btn"> << Back</a>
+		 ?>
+		 <a href="index.php" role="button" class="btn"> << Back</a>
+		 <button class="btn" style="position: absolute; left: 60%; width: 500px;" id="showMap">Show Map</button>
+	</div>
 	
-	<table class="tbl">
+	<table class="tbl" style="float: left;">
 
 	<?php 
 		
@@ -127,5 +132,34 @@
 	 ?>
 	</table>
 
+	<div id="myMap">
+		<?php
+			include('events.php');
+			$e = new events;
+			$one = $e->getOneEvent($id);
+			$one = json_encode($one, true);
+
+			echo '<div id="onelocation" style="display: none;">' . $one . '</div>';
+		?>
+		<div id="mapp" style="width: 500px; height: 400px; border: 2px solid; float: right;">
+			
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		//$('#mapp').hide();
+		$('#showMap').click(function(){
+			$('#mapp').toggle();
+		});
+	</script>
+
+
+
 </body>
+
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApmgbzLQcbmUzRKWNgO_aVD0K_mXAyfUI&callback=gMap2"
+        async defer></script>
+
+
 </html>

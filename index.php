@@ -210,6 +210,8 @@
         async defer></script>
 
 
-
+<footer id="footer">
+	<?php include("footer.php"); ?>
+</footer>
 
 </html>

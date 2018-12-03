@@ -98,11 +98,17 @@
     </div>
 
   	<div class="input-group">
-  	  <button type="submit" class="btn" name="register">Register</button>
+  	  <button type="submit" class="btn" name="registeration1">Register</button>
       <a href="index.php" role="button" class="btn">Cancel</a>
   	</div>
 
 </form>
  
 </body>
+
+<footer>
+  <?php include("footer.php"); ?>
+</footer>
+
+
 </html>

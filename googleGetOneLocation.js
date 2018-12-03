@@ -3,30 +3,21 @@ var mapsearch;
 var mapfilter;
 
 function gMap2(){
-	var myLatLng = {lat: 41.8781, lng: 87.6298};
-
-        
-        mapp = new google.maps.Map(document.getElementById('mapp'), {
-          center: myLatLng,
-          zoom: 4
-        });
-
-        var marker = new google.maps.Marker({
-          map: mapp,
-          position: myLatLng
-        });
-
         var evone = document.getElementById('onelocation').innerHTML;
         evone = JSON.parse(evone);
         markOneEvent(evone);
-
 }
 
 function markOneEvent(evone){
 	
 	var info = new google.maps.InfoWindow;
+
 	Array.prototype.forEach.call(evone, function(d){
-		//alert(d[15]);
+		var myLatLng = {lat: parseFloat(d[14]), lng: parseFloat(d[15])};
+        mapp = new google.maps.Map(document.getElementById('mapp'), {
+          center: myLatLng,
+          zoom: 14
+        });
 		var content = document.createElement('div');
 		var strong = document.createElement('strong');
 		strong.textContent = d[2];
@@ -39,7 +30,7 @@ function markOneEvent(evone){
 
 		marker.addListener('mouseover', function(){
 			info.setContent(content);
-			info.open(map, marker);
+			info.open(mapp, marker);
 		});
 
 	});
@@ -48,17 +39,11 @@ function markOneEvent(evone){
 
 
 function gMap3(){
-	var myLatLng = {lat: 41.8781, lng: 87.6298};
+	var myLatLng = {lat: 37.0902, lng: 95.7129};
 
-        
         mapsearch = new google.maps.Map(document.getElementById('mapsearch'), {
           center: myLatLng,
           zoom: 4
-        });
-
-        var marker = new google.maps.Marker({
-          map: mapsearch,
-          position: myLatLng
         });
 
         var evone = document.getElementById('searchlocation').innerHTML;
@@ -84,7 +69,7 @@ function markSearchEvent(evone){
 
 		marker.addListener('mouseover', function(){
 			info.setContent(content);
-			info.open(map, marker);
+			info.open(mapsearch, marker);
 		});
 
 	});
@@ -93,17 +78,12 @@ function markSearchEvent(evone){
 
 
 function gMap4(){
-	var myLatLng = {lat: 41.8781, lng: 87.6298};
+	var myLatLng = {lat: 37.0902, lng: 95.7129};
 
         
         mapfilter = new google.maps.Map(document.getElementById('mapfilter'), {
           center: myLatLng,
           zoom: 4
-        });
-
-        var marker = new google.maps.Marker({
-          map: mapfilter,
-          position: myLatLng
         });
 
         var evone = document.getElementById('filterlocation').innerHTML;
@@ -129,7 +109,7 @@ function markFilterEvent(evone){
 
 		marker.addListener('mouseover', function(){
 			info.setContent(content);
-			info.open(map, marker);
+			info.open(mapfilter, marker);
 		});
 
 	});

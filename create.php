@@ -65,7 +65,7 @@
   </header>
 
 </head>
-<body>
+<body style="background-color: #FFFAF0;">
 
   <?php 
 
@@ -126,24 +126,24 @@
   
 
 
-<form method="post" action="create.php" class="mycreate">
+<form method="post" action="create.php" class="mycreate" id="mycreate">
 
   <div class="crt">
     <h1 id="hs">Add an Event <?php echo $user_id ?> </h1>
   </div>
 	
 	<div class="input-group">
-  	  <label> Title </label></br>
+  	  <label> Title <strong>*</strong></label></br>
   	  <input type="text" class="in" name="title" >
   	</div>
 
   	<div class="input-group">
-  	  <label> Org. Name </label></br>
+  	  <label> Org. Name <strong>*</strong></label></br>
   	  <input type="text" class="in" name="org">
   	</div>
 
     <div class="input-group">
-      <label>Event Category</label></br>
+      <label>Event Category <strong>*</strong></label></br>
       <select name="category" class="in">
         <option value="">Select a category:</option>
         <option value="Social">Social</option>
@@ -154,42 +154,42 @@
     </div>
 
     <div class="input-group">
-      <label>Event Date and Time</label></br>
+      <label>Event Date and Time <strong>*</strong></label></br>
       <input type="text" name = "datetime" id="datepicker" class="in">
   </div>
 
     <div class="input-group">
-      <label>Description</label></br>
+      <label>Description <strong>*</strong></label></br>
       <textarea type="text" class="inx" name="description" value="<?php echo $history; ?>"></textarea>
     </div>
 
   	<div class="input-group">
-  	  <label>Address</label></br>
+  	  <label>Address <strong>*</strong></label></br>
   	  <textarea type="text" class="inx" name="address" value="<?php echo $address; ?>"></textarea>
   	</div>
 
     <div class="input-group">
-      <label> City </label></br>
+      <label> City <strong>*</strong></label></br>
       <input type="text" class="in" name="city" value="<?php echo $age; ?>">
     </div>
 
     <div class="input-group">
-      <label>Zip Code</label></br>
-      <input type="number" class="in" name="zipcode" value="<?php echo $sex; ?>">
+      <label>Zip Code <strong>*</strong></label></br>
+      <input type="number" class="in" name="zipcode" id="zipcode" value="<?php echo $sex; ?>">
     </div>
 
     <div class="input-group">
-      <label> Country </label></br>
+      <label> Country <strong>*</strong></label></br>
       <input type="text" class="in" name="country" value="<?php echo $age; ?>">
     </div>
 
     <div class="input-group">
-      <label>Phone</label></br>
+      <label>Phone </label></br>
       <input type="number" class="in" name="phone" value="<?php echo $sex; ?>">
     </div>
 
     <div class="input-group">
-      <label>Email</label></br>
+      <label>Email </label></br>
       <input type="email" class="in" name="email" value="<?php echo $sex; ?>">
     </div>
 
@@ -206,10 +206,27 @@
     <script src="jquery.datetimepicker.full.js"></script>
     <script>
       $('#datepicker').datetimepicker();
+
+
+      $('#mycreate').validate({
+        rules: {
+          zipcode: {
+            required: true,
+            minminlength: 5,
+            maxlength: 5
+          }
+        }
+      });
     </script>     
 
 
 
  
 </body>
+
+<!--<footer id="footer" style="position: absolute; bottom: 0px; clear: both;">
+  <?php //include("footer.php"); ?>
+</footer>-->
+<?php include("footer.php"); ?>
+
 </html>

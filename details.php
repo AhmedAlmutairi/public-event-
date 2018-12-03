@@ -73,7 +73,7 @@
 			//echo $ownerId;
 			//echo $loginId;
 			echo '<a href="edit.php?id='.$idd.'" role="button" class="btn bttt" id="edit"> Edit Event </a>';
-			echo '<a href="delete.php?id='.$idd.'" role="button" class="btn bttt" id="delete" OnClick="return confirm("blah blah");"> Delete </a>';
+			echo '<a href="delete.php?id='.$idd.'" role="button" class="btn bttt" id="delete" OnClick="conf();"> Delete </a>';
 
 		 ?>
 		 <?php if ($ownerId != $loginId) : ?>
@@ -82,9 +82,6 @@
 		 		$('#delete').css({"opacity": "0.65", "cursor": "not-allowed", "pointer-events": "none"});
         		$('#edit').prop('disabled', true);
 
-        		function conf(){
-        			alert("alert");
-        		}
 
 		 	</script>
 
@@ -181,5 +178,9 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApmgbzLQcbmUzRKWNgO_aVD0K_mXAyfUI&callback=gMap2"
         async defer></script>
 
+
+    <footer style="float: left;">
+		<?php include("footer.php"); ?>
+	</footer>
 
 </html>

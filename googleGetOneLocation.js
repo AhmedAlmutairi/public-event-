@@ -1,6 +1,7 @@
 var mapp;
 var mapsearch;
 var mapfilter;
+var geocoder;
 
 function gMap2(){
         var evone = document.getElementById('onelocation').innerHTML;
@@ -39,7 +40,7 @@ function markOneEvent(evone){
 
 
 function gMap3(){
-	var myLatLng = {lat: 37.0902, lng: 95.7129};
+	var myLatLng = {lat: 41.8781, lng: 87.6298};
 
         mapsearch = new google.maps.Map(document.getElementById('mapsearch'), {
           center: myLatLng,
@@ -48,6 +49,7 @@ function gMap3(){
 
         var evone = document.getElementById('searchlocation').innerHTML;
         evone = JSON.parse(evone);
+        geocoder = new google.maps.Geocoder();
         markSearchEvent(evone);
 
 }
@@ -78,7 +80,7 @@ function markSearchEvent(evone){
 
 
 function gMap4(){
-	var myLatLng = {lat: 37.0902, lng: 95.7129};
+	var myLatLng = {lat: 41.8781, lng: 87.6298};
 
         
         mapfilter = new google.maps.Map(document.getElementById('mapfilter'), {
@@ -88,6 +90,7 @@ function gMap4(){
 
         var evone = document.getElementById('filterlocation').innerHTML;
         evone = JSON.parse(evone);
+        geocoder = new google.maps.Geocoder();
         markFilterEvent(evone);
 
 }

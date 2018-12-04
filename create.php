@@ -14,8 +14,7 @@
     <nav>
       <div class="mydiv">
         <a href="index.php" class="btn" type="button">Home</a>
-        <a href="register.php" class="btn" type="button">Register</a>
-        <a href="login.php" class="btn" type="button">Login</a>
+        <a href="about.php" class="btn" type="button">About us</a>
       </div>
       <?php 
           session_start(); 
@@ -65,7 +64,7 @@
   </header>
 
 </head>
-<body style="background-color: #FFFAF0;">
+<body style="background-color: #FFFAF0; height: 1200px;">
 
   <?php 
 
@@ -126,7 +125,7 @@
   
 
 
-<form method="post" action="create.php" class="mycreate" id="mycreate">
+<form method="post" action="create.php" class="mycreate" id="mycreate" style="height: 1050px;">
 
   <div class="crt">
     <h1 id="hs">Add an Event <?php echo $user_id ?> </h1>
@@ -224,9 +223,8 @@
  
 </body>
 
-<!--<footer id="footer" style="position: absolute; bottom: 0px; clear: both;">
-  <?php //include("footer.php"); ?>
-</footer>-->
-<?php include("footer.php"); ?>
+<footer id="footer" style="clear: both; position: relative; height: 40px; margin-top: 1130px; width: 100%;">
+  <?php include("footer.php"); ?>
+</footer>
 
 </html>

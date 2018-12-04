@@ -9,8 +9,7 @@
     <nav>
       <div class="mydiv">
         <a href="index.php" class="btn" type="button">Home</a>
-        <a href="register.php" class="btn" type="button">Register</a>
-        <a href="login.php" class="btn" type="button">Login</a>
+        <a href="about.php" class="btn" type="button">About us</a>
       </div>
       <?php 
           session_start(); 
@@ -106,7 +105,7 @@
  
 </body>
 
-<footer>
+<footer style="clear: both; position: relative; height: 40px; margin-top: 1050px; width: 100%;">
   <?php include("footer.php"); ?>
 </footer>
 

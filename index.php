@@ -9,8 +9,8 @@
 		<nav>
 			<div class="mydiv">
 				<a href="index.php" class="btn" type="button">Home</a>
-				<a href="register.php" class="btn" type="button">Register</a>
-				<a href="login.php" class="btn" type="button">Login</a>
+				<a href="about.php" class="btn" type="button">About us</a>
+				
 			</div>
 			<?php 
   				session_start(); 
@@ -206,11 +206,11 @@
 </body>
 
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApmgbzLQcbmUzRKWNgO_aVD0K_mXAyfUI&callback=gMap"
-        async defer></script>
+<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApmgbzLQcbmUzRKWNgO_aVD0K_mXAyfUI&callback=gMap"
+        async defer></script>-->
 
 
-<footer id="footer">
+<footer style="clear: both; position: relative; height: 40px; margin-top: 500px; width: 100%;">
 	<?php include("footer.php"); ?>
 </footer>
 

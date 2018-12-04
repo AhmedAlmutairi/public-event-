@@ -210,7 +210,7 @@
         async defer></script>-->
 
 
-<footer style="clear: both; position: relative; height: 40px; margin-top: 500px; width: 100%;">
+<footer style="clear: both; position: relative; height: 40px; margin-top: 50px; width: 100%;">
 	<?php include("footer.php"); ?>
 </footer>
 

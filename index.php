@@ -206,8 +206,8 @@
 </body>
 
 
-<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApmgbzLQcbmUzRKWNgO_aVD0K_mXAyfUI&callback=gMap"
-        async defer></script>-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyApmgbzLQcbmUzRKWNgO_aVD0K_mXAyfUI&callback=gMap"
+        async defer></script>
 
 
 <footer style="clear: both; position: relative; height: 40px; margin-top: 50px; width: 100%;">

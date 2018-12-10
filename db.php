@@ -46,7 +46,7 @@ if ($err) {
   echo '<script type="text/javascript">alert("Fields (username, name, email, password) cannot be empty");</script>';
 }else if($passErr){
   echo '<script type="text/javascript">alert("passwords not matching");</script>';
-}if ($user) {
+}else if ($user) {
     if ($user['username'] === $username) {
       echo '<script type="text/javascript">alert("username is exist");</script>';;
     }

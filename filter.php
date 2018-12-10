@@ -11,6 +11,11 @@
 
 		include('events.php');
 		$e = new events;
+
+		$v = $e->getEvents();
+		$v = json_encode($v, true);
+		echo '<div id="location" style="display: none;">' . $v . '</div>';
+
 		$one = $e->getFilterEvent($category);
 		$one = json_encode($one, true);
 		echo '<div id="filterlocation" style="display: none;">' . $one . '</div>';
